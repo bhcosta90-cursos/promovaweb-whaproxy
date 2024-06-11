@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -10,8 +10,8 @@ test('password can be updated', function () {
 
     Livewire::test(UpdatePasswordForm::class)
         ->set('state', [
-            'current_password' => 'password',
-            'password' => 'new-password',
+            'current_password'      => 'password',
+            'password'              => 'new-password',
             'password_confirmation' => 'new-password',
         ])
         ->call('updatePassword');
@@ -24,8 +24,8 @@ test('current password must be correct', function () {
 
     Livewire::test(UpdatePasswordForm::class)
         ->set('state', [
-            'current_password' => 'wrong-password',
-            'password' => 'new-password',
+            'current_password'      => 'wrong-password',
+            'password'              => 'new-password',
             'password_confirmation' => 'new-password',
         ])
         ->call('updatePassword')
@@ -39,8 +39,8 @@ test('new passwords must match', function () {
 
     Livewire::test(UpdatePasswordForm::class)
         ->set('state', [
-            'current_password' => 'password',
-            'password' => 'new-password',
+            'current_password'      => 'password',
+            'password'              => 'new-password',
             'password_confirmation' => 'wrong-password',
         ])
         ->call('updatePassword')

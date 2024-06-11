@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Database\Factories;
 
@@ -18,8 +18,8 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->company(),
-            'user_id' => User::factory(),
+            'name'          => $this->faker->unique()->company(),
+            'user_id'       => User::factory(),
             'personal_team' => true,
         ];
     }
